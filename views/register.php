@@ -24,7 +24,7 @@
                                     <h3 class="text-center font-weight-light my-4">Create Account</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form method="post">
                                         <div class="form-row">
                                             <div class="col-md-6">
                                                 <div class="form-group"><label class="small mb-1" for="inputFirstName">First Name</label><input class="form-control py-4" id="inputFirstName" type="text" placeholder="Enter first name" /></div>
@@ -42,7 +42,9 @@
                                                 <div class="form-group"><label class="small mb-1" for="inputConfirmPassword">Confirm Password</label><input class="form-control py-4" id="inputConfirmPassword" type="password" placeholder="Confirm password" /></div>
                                             </div>
                                         </div>
-                                        <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" href="/">Create Account</a></div>
+                                        <div class="form-group mt-4 mb-0">
+                                            <button class="btn btn-primary btn-block" name="register" type="submit">Create Account</button>
+                                        </div>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center">

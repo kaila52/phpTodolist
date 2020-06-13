@@ -5,7 +5,7 @@
         $action = '';
     }
     
-    if(isset($_POST['login_user'])){
+    if(isset($_POST['login'])){
         $action = 'login';
     }
 
@@ -26,27 +26,24 @@
                 return require('views/login.php');
             }
 
-            $res = $db->findUser('*','(username = "'.$username.'" AND password = "'.$password.'")OR(email = "'.$username.'" AND password = "'.$password.'")');
-            
+            $res = $db->findUser('id,username,email,roler','(username = "'.$username.'" AND password = "'.$password.'")OR(email = "'.$username.'" AND password = "'.$password.'")');
+ 
             if ($res) {
-                $res =  $db->checkroler($username);
-                $_SESSION['id'] = $res[0][0];
-                $_SESSION['username'] = $res[0][1];
-                $_SESSION['email'] = $res[0][3];
-                $_SESSION['role'] = $res[0][4];
-                switch($res[0][4]){
+                $_SESSION['id'] = $res[0];
+                $_SESSION['username'] = $res[1];
+                $_SESSION['email'] = $res[2];
+                $_SESSION['roler'] = $res[3];
+                
+                switch($res[3]){
                     case 'manager':
-                        header('location: index.php?controller=index');
-                        break;
-                    case 'writer':
+                        header('location: index.php?controller=admin');
                         break;
                     case 'guest':
-                        header('location: index.php?controller=password');
+                        header('location: index.php?controller=profile');
                         break;
                     default:
                         header('location: index.php');
                 }
-                // header('location: index.php?controller=index');
             } else {
                 echo '<script>alert("Sai tài khoản hoặc mật khẩu")</script>';
             }

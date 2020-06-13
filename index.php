@@ -23,11 +23,15 @@ switch($controller){
     case 'password':
         require('controller/password.php');
         break;
-    case 'register':
-        require('controller/register.php');
+    case 'profile':
+        require('controller/profile.php');
         break;
-    case 'product':
-        require('controller/admin/product.php');
+    case 'admin':
+        require('controller/admin/index.php');
+        break;
+    case 'logout':
+        session_destroy();
+        header('location: index.php');
         break;
     default :
     require('controller/error.php');
@@ -60,6 +64,3 @@ switch($controller){
 //     default:
 //         require('controller/' . $controller . '.php');
 // }
-
-
-?>

@@ -5,9 +5,9 @@
         $action = '';
     }
     
-    // if(isset($_POST['login_user'])){
-    //     $action = 'login';
-    // }
+    if(isset($_POST['register'])){
+        $action = 'register';
+    }
 
     // if(isset($_PUT['action'])){
     //     $controller = 'edit';
@@ -20,6 +20,9 @@
     switch($action){
         case '':
             require('views/register.php');
+            break;
+        case 'register':
+            echo '<script>alert("đã dvào")</script>';
             break;
     }
 ?>

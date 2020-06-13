@@ -81,11 +81,6 @@
         public function deleteUser()
         {
         }
-//sevice role
-        public function checkroler($user){
-            $this->execute("select users.id,users.username,users.password,users.email, roles.Role_name from useroles inner join users on useroles.id_user = users.id inner join roles on useroles.id_role = roles.id WHERE users.username='".$user."' OR email='".$user."'");
-            return $this->getAllData();
-        }
 
 //sevice product
         public function getProduct(){
