@@ -1,7 +1,7 @@
 <?php
-if (empty($_SESSION['username'])) {
-    header('location: /');
-}
+// if (empty($_SESSION['username'])) {
+//     header('location: /');
+// }
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,6 +63,14 @@ L239.77,215.555L347.383,49.998l144.717,72.359l-26.387,45.446c-2.299,3.961-0.952,
                             <i class="fab fa-linkedin"></i><span class="d-lg-none ml-3">Linkedin</span>
                         </a> </li>
                 </ul>
+                <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
+                    <li class="nav-item px-1">
+                        <a class="btn btn-outline-info my-2 my-sm-0" type="submit" href="index.php?controller=login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="btn btn-outline-info my-2 my-sm-0" type="submit" href="index.php?controller=register"><i class="fas fa-sign-in-alt"></i> Register</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -76,7 +84,7 @@ L239.77,215.555L347.383,49.998l144.717,72.359l-26.387,45.446c-2.299,3.961-0.952,
                             <i class="fas fa-heart"></i>
                         </a>
                     </div>
-                    <img class="card-img" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/vans.png" alt="Vans">
+                    <img class="card-img" src="pucblic/images/advantage.jpg" alt="Vans">
                     <div class="card-body">
                         <h4 class="card-title">Vans Sk8-Hi MTE Shoes</h4>
                         <h6 class="card-subtitle mb-2 text-muted">Style: VA33TXRJ5</h6>
@@ -113,7 +121,7 @@ L239.77,215.555L347.383,49.998l144.717,72.359l-26.387,45.446c-2.299,3.961-0.952,
                             <i class="fas fa-heart"></i>
                         </a>
                     </div>
-                    <img class="card-img" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/vans.png" alt="Vans">
+                    <img class="card-img" src="pucblic/images/advantage.jpg" alt="Vans">
                     <div class="card-body">
                         <h4 class="card-title">Vans Sk8-Hi MTE Shoes</h4>
                         <h6 class="card-subtitle mb-2 text-muted">Style: VA33TXRJ5</h6>
@@ -150,7 +158,7 @@ L239.77,215.555L347.383,49.998l144.717,72.359l-26.387,45.446c-2.299,3.961-0.952,
                             <i class="fas fa-heart"></i>
                         </a>
                     </div>
-                    <img class="card-img" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/vans.png" alt="Vans">
+                    <img class="card-img" src="pucblic/images/advantage.jpg" alt="Vans">
                     <div class="card-body">
                         <h4 class="card-title">Vans Sk8-Hi MTE Shoes</h4>
                         <h6 class="card-subtitle mb-2 text-muted">Style: VA33TXRJ5</h6>
@@ -187,7 +195,7 @@ L239.77,215.555L347.383,49.998l144.717,72.359l-26.387,45.446c-2.299,3.961-0.952,
                             <i class="fas fa-heart"></i>
                         </a>
                     </div>
-                    <img class="card-img" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/vans.png" alt="Vans">
+                    <img class="card-img" src="pucblic/images/advantage.jpg" alt="Vans">
                     <div class="card-body">
                         <h4 class="card-title">Vans Sk8-Hi MTE Shoes</h4>
                         <h6 class="card-subtitle mb-2 text-muted">Style: VA33TXRJ5</h6>

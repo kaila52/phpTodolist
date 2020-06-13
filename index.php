@@ -12,10 +12,13 @@ if(isset($_GET['controller'])){
 
 switch($controller){
     case '':
+        require('controller/index.php');
+        break;
+    case 'login':
         require('controller/login.php');
         break;
-    case 'index':
-        require('controller/index.php');
+    case 'register':
+        require('controller/register.php');
         break;
     case 'password':
         require('controller/password.php');
@@ -25,6 +28,9 @@ switch($controller){
         break;
     case 'product':
         require('controller/admin/product.php');
+        break;
+    default :
+    require('controller/error.php');
         break;
 }
 // $controller = "login";
