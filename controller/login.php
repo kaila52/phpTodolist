@@ -26,13 +26,16 @@
                 return require('views/login.php');
             }
 
-            $res = $db->findUser('id,username,email,roler','(username = "'.$username.'" AND password = "'.$password.'")OR(email = "'.$username.'" AND password = "'.$password.'")');
+            $res = $db->findUser('id,username,email,roler,firstname,lastname,picture','(username = "'.$username.'" AND password = "'.$password.'")OR(email = "'.$username.'" AND password = "'.$password.'")');
  
             if ($res) {
                 $_SESSION['id'] = $res[0];
                 $_SESSION['username'] = $res[1];
                 $_SESSION['email'] = $res[2];
                 $_SESSION['roler'] = $res[3];
+				$_SESSION['firstname'] = $res[4];
+				$_SESSION['lastname'] = $res[5];
+				$_SESSION['	picture'] = $res[6];
                 
                 switch($res[3]){
                     case 'manager':

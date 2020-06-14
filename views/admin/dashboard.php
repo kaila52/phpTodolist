@@ -1,5 +1,5 @@
 <?php
-    require "component/componentHeader.php";
+    require "views/component/headerAdmin.php";
 ?>
 
 <div id="layoutSidenav_content">
@@ -527,5 +527,5 @@
 </div>
 
 <?php
-    require "component/componentFotter.php";
+    require "views/component/fotterAdmin.php";
 ?>

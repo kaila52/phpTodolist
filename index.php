@@ -24,7 +24,10 @@ switch($controller){
         require('controller/password.php');
         break;
     case 'profile':
-        require('controller/profile.php');
+        require('controller/profile/index.php');
+        break;
+    case 'contact':
+        require('controller/contact.php');
         break;
     case 'admin':
         require('controller/admin/index.php');
@@ -37,30 +40,3 @@ switch($controller){
     require('controller/error.php');
         break;
 }
-// $controller = "login";
-// $action = 'index';
-
-
-// if (isset($_GET["url"])) {
-//     $arr =  explode("/", trim($_GET['url']));
-// }
-
-// if (!isset($arr[0])) {
-//     $arr[0] = $controller;
-// }
-
-
-// // check file có tồn tại hay k
-// if (file_exists('controller/' . $arr[0] . '.php')) {
-//     $controller = $arr[0];
-// } else {
-//     $controller = 'err';
-// }
-
-// switch ($controller) {
-//     case 'err':
-//         require('controller/error.php');
-//         break;
-//     default:
-//         require('controller/' . $controller . '.php');
-// }

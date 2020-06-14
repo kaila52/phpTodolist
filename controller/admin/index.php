@@ -13,10 +13,12 @@
     
     switch($action){
         case '':
-            require('views/admin/index.php');
+            require('views/admin/dashboard.php');
+            break;
+        case 'dashboard':
+            require('views/admin/dashboard.php');
             break;
         case 'customer':
             require('customer.php');
             break;
     }
-?>

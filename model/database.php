@@ -59,16 +59,16 @@
             $this->execute('select ' . $query . ' from users where ' . $requirement);
             return $this->getData();
         }
-
+       
         public function findAllUser()
         {
             $this->execute('select * from users');
             return $this->getAllData();
         }
 
-        public function addUser($username, $passwd, $email)
+        public function addUser($username, $passwd, $email,$firstname,$lastname)
         {
-            $sql = "INSERT INTO users VALUES (null,'$username', '$passwd', '$email')";
+            $sql = "INSERT INTO users VALUES (null,'$username', '$passwd', '$email','guest','$firstname','$lastname','')";
             return $this->execute($sql);
         }
 

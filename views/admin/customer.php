@@ -1,10 +1,10 @@
 <?php
-require "component/componentHeader.php";
+    require "views/component/headerAdmin.php";
 ?>
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid">
-            <h1 class="mt-4">Dashboard</h1>
+            <h1 class="mt-4">Customer</h1>
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -63,5 +63,5 @@ require "component/componentHeader.php";
     </footer>
 </div>
 <?php
-require "component/componentFotter.php";
+    require "views/component/fotterAdmin.php";
 ?>
