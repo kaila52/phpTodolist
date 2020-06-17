@@ -78,14 +78,20 @@
             return $this->execute($sql);
         }
 
+        public function updatePicture($id, $picture)
+        {
+            $sql = "UPDATE users SET picture = '$picture' WHERE id = '$id'";
+            return $this->execute($sql);
+        }
+
         public function deleteUser()
         {
         }
 
 //sevice product
-        public function getProduct(){
-            $this->execute('select * from users');
-            return $this->getData();
+        public function getProduct($query,$where){
+            $this->execute('select '.$query.' from product where directory = "'.$where.'"');
+            return $this->getAllData();
         }
         public function addProduct(){
             

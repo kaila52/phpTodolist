@@ -14,6 +14,15 @@ switch($controller){
     case '':
         require('controller/index.php');
         break;
+    case 'index':
+        require('controller/index.php');
+        break;
+    case 'product':
+        require('controller/product.php');
+        break;
+    case 'contact':
+        require('controller/contact.php');
+        break;
     case 'login':
         require('controller/login.php');
         break;
@@ -25,9 +34,6 @@ switch($controller){
         break;
     case 'profile':
         require('controller/profile/index.php');
-        break;
-    case 'contact':
-        require('controller/contact.php');
         break;
     case 'admin':
         require('controller/admin/index.php');

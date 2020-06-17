@@ -35,7 +35,7 @@
                 $_SESSION['roler'] = $res[3];
 				$_SESSION['firstname'] = $res[4];
 				$_SESSION['lastname'] = $res[5];
-				$_SESSION['	picture'] = $res[6];
+				$_SESSION['profile'] = $res[6];
                 
                 switch($res[3]){
                     case 'manager':

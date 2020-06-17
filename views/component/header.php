@@ -59,16 +59,36 @@ L239.77,215.555L347.383,49.998l144.717,72.359l-26.387,45.446c-2.299,3.961-0.952,
                         </a> </li>
                 </ul>
                 <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img id="navbarDropdown" src="pucblic/images/avatarDefaul.png" style="border-radius: 50%;width: 40px;height: 40px;" />
-                        </a>
+                <?php
+                    if (empty($_SESSION['id'])) {
+                        echo '<li class="nav-item px-1">
+                            <a class="btn btn-outline-info my-2 my-sm-0" type="submit" href="index.php?controller=login">
+                                <i class="fas fa-sign-in-alt"></i> Login
+                            </a>
+                        </li>
+                        <li class="nav-item px-1">
+                            <a class="btn btn-outline-info my-2 my-sm-0" type="submit" href="index.php?controller=register">
+                                <i class="fas fa-sign-in-alt"></i> Register
+                            </a>
+                        </li>';
+                    } else{
+                        echo ' <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+                        if(!empty($_SESSION['profile'])){
+                            echo '<img id="navbarDropdown" style="border-radius: 50%;width: 40px;height: 40px;" src="pucblic/images/user/' . $_SESSION['profile'] . '"/>';
+                        }else{
+                            echo '<img id="navbarDropdown" src="pucblic/images/avatarDefaul.png" style="border-radius: 50%;width: 40px;height: 40px;" />';
+                        }
+                            echo '</a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="index.php?controller=profile">Settings</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="index.php?controller=logout">Logout</a>
                         </div>
-                    </li>
+                    </li>';
+                    }
+                    ?>
+                   
                 </ul>
             </div>
         </div>
