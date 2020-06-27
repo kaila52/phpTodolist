@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 17, 2020 lúc 02:13 AM
--- Phiên bản máy phục vụ: 10.4.11-MariaDB
--- Phiên bản PHP: 7.2.31
+-- Host: 127.0.0.1
+-- Generation Time: Jun 27, 2020 at 11:17 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.2.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,33 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `test`
+-- Database: `test`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product`
+-- Table structure for table `directory`
+--
+
+CREATE TABLE `directory` (
+  `id` int(11) NOT NULL,
+  `directory` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `directory`
+--
+
+INSERT INTO `directory` (`id`, `directory`) VALUES
+(1, 'shoes'),
+(2, 'clothing'),
+(3, 'accessories');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
 --
 
 CREATE TABLE `product` (
@@ -37,16 +58,17 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `product`
+-- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`id`, `directory`, `title`, `description`, `price`, `img`) VALUES
-('VA33TXRJ5', 'shoes', 'Vans Sk8-Hi MTE Shoes', 'The Vans All-Weather MTE Collection features footwear and apparel designed to withstand the elements whilst still looking cool.', '125', 'advantage');
+('VA33TXRJ5', 'shoes', 'Vans Sk8-Hi MTE Shoes', 'The Vans All-Weather MTE Collection features footwear and apparel designed to withstand the elements whilst still looking cool.', '125', 'bugatti_veyron_8'),
+('VA33TXRJ5d', 'clothing', 'Vans Sk8-Hi MTE Shoes', 'The Vans All-Weather MTE Collection features footwear and apparel designed to withstand the elements whilst still looking cool.', '12351', 'advantage');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -61,38 +83,49 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `roler`, `firstname`, `lastname`, `picture`) VALUES
-(1, 'admin', 'admin123', 'admin@gmail.com', 'manager', 'ew', 'qwr', '212961127217.jpg'),
-(2, 'kaila52', 'kaila52', 'kaila52@gmail.com', 'guest', 'wqe', 'weqe', '191788807610.jpg');
+(1, '', '', '', '', '', '', '');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `product`
+-- Indexes for table `directory`
+--
+ALTER TABLE `directory`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `directory`
+--
+ALTER TABLE `directory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
