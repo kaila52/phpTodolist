@@ -7,7 +7,10 @@
     
     switch($action){
         case '':
-            require('views/index.php');
+            require('views/home.php');
+            break;
+        default:
+            require('views/error.php');
             break;
     }
 ?>

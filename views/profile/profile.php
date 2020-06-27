@@ -7,15 +7,15 @@ require "views/component/header.php";
             <div id="list-example" class="list-group">
                 <a class="dropdown-item py-2 rounded active" href="index.php?controller=profile">Picture</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item py-2 rounded" href="index.php?controller=profile&action=account">Account settings</a>
+                <a class="dropdown-item py-2 rounded" href="index.php?controller=profile&action=setting">Account settings</a>
                 <div class="dropdown-divider rounded"></div>
                 <a class="dropdown-item py-2 rounded" href="index.php?controller=profile&action=password">Change the password</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item py-2 rounded" href="#">Separated link</a>
+                <a class="dropdown-item py-2 rounded" href="#">Developing</a>
             </div>
         </div>
         <div class="col-9 d-flex justify-content-center">
-            <form class="w-50 text-center" method="POST" enctype="multipart/form-data">
+            <form class="w-50 text-center" method="PUT" enctype="multipart/form-data">
                 <div>
                     <label style="cursor: pointer;" for="file-input">
                         <?php

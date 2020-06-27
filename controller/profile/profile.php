@@ -5,7 +5,7 @@
         $param = '';
     }
     
-    if(isset($_POST["submit"])){
+    if(isset($_PUT["submit"])){
         $param = 'image';
     }
 
@@ -14,7 +14,6 @@
             require('views/profile/profile.php');
             break;
         case 'image':
-            
             $name = $_FILES["image"]["name"];
             $number = mt_rand();
             $_SESSION['profile'] = $number.$name;

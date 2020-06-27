@@ -30,25 +30,17 @@ require "views/component/headerAdmin.php";
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <?php
-                                foreach ($user as $key => $value) {
-                                    echo '
-                                        <tr data-id=' . $value["id"] . ' data-username=' . $value["username"] . ' data-email=' . $value["email"] . '>
-                                            <td name="id">' . $key . '</td>
-                                            <td>' . $value["username"] . '</td>
-                                            <td>' . $value["email"] . '</td>
-                                            <td><a href="pucblic/images/user/' . $value["picture"] . '">Link</a></td>
-                                            <td>    
-                                                <p>'.$value["roler"].'</p>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-info btn-xs btn-edit">Edit</button>
-                                                <button class="btn btn-danger btn-xs btn-delete">Delete</button>
-                                            </td>
-                                        </tr>';
-                                }
-                                ?>
-
+                                <tr data-username="System Architect" data-email="Edinburgh" >
+                                    <td>1</td>
+                                    <td>System Architect</td>
+                                    <td>Edinburgh</td>
+                                    <td><a href="/">Link</a></td>
+                                    <td><p>2011/04/25</p></td>
+                                    <td>
+                                        <button class='btn btn-info btn-xs btn-edit'>Edit</button>
+                                        <button class='btn btn-danger btn-xs btn-delete'>Delete</button>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -71,7 +63,7 @@ require "views/component/headerAdmin.php";
     </footer>
 </div>
 <?php
-require "views/component/fotterAdmin.php";
+    require "views/component/fotterAdmin.php";
 ?>
 
 <script>
@@ -85,32 +77,26 @@ require "views/component/fotterAdmin.php";
         $(this).parents("tr").find("td:eq(3)").prepend("<div class='file'><label for='files' class='btn btn-primary'>Select Image</label><input id='files' style='display: none' type='file'></div>");
         $(this).parents("tr").find("td:eq(4)").find("p").hide();
         $(this).parents("tr").find("td:eq(4)").prepend('<select class="form-control"><option>manager</option><option>guest</option></select>');
-
+        
         $(this).parents("tr").find("td:eq(5)").prepend("<button class='btn btn-info btn-xs btn-update'>Update</button><button class='btn btn-warning btn-xs btn-cancel'>Cancel</button>")
         $(this).hide();
-        $(this).parents("tr").find('.btn-delete').hide();
+        $('.btn-delete').hide();
     });
 
-    $("body").on("click", ".btn-cancel", function() {
+    $("body").on("click", ".btn-cancel", function(){
         var username = $(this).parents("tr").attr('data-username');
         var email = $(this).parents("tr").attr('data-email');
-
+    
         $(this).parents("tr").find("td:eq(1)").text(username);
         $(this).parents("tr").find("td:eq(2)").text(email);
         $(this).parents("tr").find("td:eq(3)").find('a').show();
         $(this).parents("tr").find("td:eq(3)").find('div').remove();
         $(this).parents("tr").find("td:eq(4)").find('p').show();
         $(this).parents("tr").find("td:eq(4)").find('select').remove();
-
+   
         $(this).parents("tr").find(".btn-edit").show();
         $(this).parents("tr").find(".btn-delete").show();
         $(this).parents("tr").find(".btn-update").remove();
         $(this).parents("tr").find(".btn-cancel").remove();
-    });
-    $("body").on("click", ".btn-delete", function(e) {
-        <?php 
-            $db->deleteUser('$(this).parents("tr").attr("data-id")');
-        ?>
-        $(this).parents("tr").remove();
     });
 </script>

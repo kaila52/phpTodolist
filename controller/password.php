@@ -9,5 +9,8 @@
         case '':
             require('views/password.php');
             break;
+        default:
+            require('views/error.php');
+            break;
     }
 ?>

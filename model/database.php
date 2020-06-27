@@ -84,8 +84,10 @@
             return $this->execute($sql);
         }
 
-        public function deleteUser()
+        public function deleteUser($id)
         {
+            $sql = "DELETE FROM users WHERE id = '$id'";
+            return $this->execute($sql);
         }
 
 //sevice product
@@ -102,6 +104,13 @@
         public function deleteProduct(){
 
         }
+
+//sevice directory
+        public function getDirectory(){
+            $this->execute('SELECT * FROM `directory`');
+            return $this->getAllData();
+        }
+
         
     }
 ?>

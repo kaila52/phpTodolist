@@ -9,5 +9,8 @@
         case '':
             require('views/contact.php');
             break;
+        default:
+            require('views/error.php');
+            break;
     }
 ?>

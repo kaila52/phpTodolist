@@ -5,9 +5,7 @@
         $action = '';
     }
 
-    if($_SESSION['roler'] == 'manager'){
-        
-    }else{
+    if($_SESSION['roler'] != 'manager'){
         header('location: index.php');
     }
     
@@ -20,5 +18,11 @@
             break;
         case 'customer':
             require('customer.php');
+            break;
+        case 'product':
+            require('product.php');
+            break;
+        default:
+            require('views/error.php');
             break;
     }

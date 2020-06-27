@@ -27,16 +27,18 @@ L239.77,215.555L347.383,49.998l144.717,72.359l-26.387,45.446c-2.299,3.961-0.952,
 
             <div class="collapse navbar-collapse" id="navbar4">
                 <ul class="navbar-nav mr-auto pl-lg-4">
-                    <li class="nav-item px-lg-2 active"> <a class="nav-link" href="#"> <span class="d-inline-block d-lg-none icon-width"><i class="fas fa-home"></i></span>Home</a></li>
+                    <li class="nav-item px-lg-2 active"> <a class="nav-link" href="index.php?controller=home"> <span class="d-inline-block d-lg-none icon-width"><i class="fas fa-home"></i></span>Home</a></li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Product
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Shoes</a>
-                            <a class="dropdown-item" href="#">Clothing</a>
-                            <a class="dropdown-item" href="#">Accessories</a>
+                            <?php
+                                foreach ($directory as $value) {
+                                    echo '<a class="dropdown-item" href="index.php?controller=product&action='.$value[1].'">'.ucfirst($value[1]).'</a>';
+                                }
+                            ?>
                         </div>
                     </li>
 

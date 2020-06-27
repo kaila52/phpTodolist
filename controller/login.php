@@ -25,19 +25,20 @@
                 echo '<script>alert("Vui lòng điền mật khẩu")</script>';
                 return require('views/login.php');
             }
-
             $res = $db->findUser('id,username,email,roler,firstname,lastname,picture','(username = "'.$username.'" AND password = "'.$password.'")OR(email = "'.$username.'" AND password = "'.$password.'")');
- 
-            if ($res) {
-                $_SESSION['id'] = $res[0];
-                $_SESSION['username'] = $res[1];
-                $_SESSION['email'] = $res[2];
-                $_SESSION['roler'] = $res[3];
-				$_SESSION['firstname'] = $res[4];
-				$_SESSION['lastname'] = $res[5];
-				$_SESSION['profile'] = $res[6];
-                
-                switch($res[3]){
+            
+
+            if ($res) { 
+                $_SESSION['id'] = $res['id'];
+                $_SESSION['username'] = $res['username'];
+                $_SESSION['email'] = $res['email'];
+                $_SESSION['roler'] = $res['roler'];
+				$_SESSION['firstname'] = $res['firstname'];
+				$_SESSION['lastname'] = $res['lastname'];
+                $_SESSION['profile'] = $res['picture'];
+
+                echo print_r($res['roler']);
+                switch($res['roler']){
                     case 'manager':
                         header('location: index.php?controller=admin');
                         break;
@@ -52,7 +53,7 @@
             }
             break;
         default:
-            require('views/login.php');
+            require('views/error.php');
             break;
     }
 ?>

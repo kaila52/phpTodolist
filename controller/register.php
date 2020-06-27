@@ -78,6 +78,8 @@
 				}
           
             break;
-			
-			    }
+        default:
+            require('views/error.php');
+            break;        
+        }
 ?>

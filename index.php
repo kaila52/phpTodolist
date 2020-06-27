@@ -4,6 +4,8 @@ require "model/database.php";
 $db = new Database;
 $db->connnect();
 
+$directory = $db->getDirectory();
+
 if(isset($_GET['controller'])){
     $controller = $_GET['controller'];
 }else{
@@ -11,11 +13,14 @@ if(isset($_GET['controller'])){
 }
 
 switch($controller){
-    case '':
-        require('controller/index.php');
+    case 'asd':
+        require('controller/error.php');
         break;
-    case 'index':
-        require('controller/index.php');
+    case '':
+        require('controller/home.php');
+        break;
+    case 'home':
+        require('controller/home.php');
         break;
     case 'product':
         require('controller/product.php');

@@ -69,8 +69,8 @@ L239.77,215.555L347.383,49.998l144.717,72.359l-26.387,45.446c-2.299,3.961-0.952,
                         </a>
                         <div class="collapse" id="product" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Category</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Detail</a>
+                                <a class="nav-link" href="index.php?controller=admin&action=product&param=directory">Directory</a>
+                                <a class="nav-link" href="index.php?controller=admin&action=product&param=detail">Detail</a>
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading">Interface</div>

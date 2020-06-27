@@ -1,36 +1,21 @@
 <?php
-    if(isset($_GET['action'])){
-        $action = $_GET['action'];
+    if(isset($_GET['param'])){
+        $param = $_GET['param'];
     }else{
-        $action = '';
+        $param = 'directory';
     }
     
-    if(isset($_POST['login_user'])){
-        $action = 'login';
-    }
 
-    if(isset($_PUT['action'])){
-        $controller = 'edit';
-    }
-    
-    if(isset($_DELETE['action'])){
-        $controller = 'delete';
-    }
 
-    switch($action){
-        case '':
-            require('views/product.php');
+    switch($param){
+        case 'directory':
+            require('views/admin/directory.php');
             break;
-        case 'login':
-            break;
-        case 'edit':
-            require('views/login.php');
-            break;
-        case 'delete':
-            require('views/login.php');
+        case 'detail':
+            require('views/admin/detail.php');
             break;
         default:
-            require('views/index.php');
+            require('views/error.php');
             break;
     }
 ?>
