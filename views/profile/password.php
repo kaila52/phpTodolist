@@ -15,31 +15,26 @@ require "views/component/header.php";
             </div>
         </div>
         <div class="col-9 d-flex justify-content-center">
-            <form>
+            <form method="POST" class="w-75">
                 <div class="form-group row">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                        <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
+                    <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg">Old Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control form-control-lg" id="colFormLabelLg" name="oldpasswd">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                        <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
+                    <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg">New Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control form-control-lg" id="colFormLabelLg" name="newpasswd">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                        <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
+                    <label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg">Confirm Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control form-control-lg" id="colFormLabelLg" name="cfpasswd">
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
-                    <div class="col-sm-10">
-                        <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="col-form-label-lg">
-                    </div>
-                </div>
+                <button type="submit" name="update" class="btn btn-success">Success</button>
             </form>
         </div>
     </div>

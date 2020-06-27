@@ -50,6 +50,8 @@
                 }
             } else {
                 echo '<script>alert("Sai tài khoản hoặc mật khẩu")</script>';
+                return require('views/login.php');
+                
             }
             break;
         default:

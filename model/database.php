@@ -78,6 +78,12 @@
             return $this->execute($sql);
         }
 
+        public function editPassUser($id, $oldpass, $passwd)
+        {
+            $sql = "UPDATE users SET password= '$passwd' WHERE id = '$id' AND password='$oldpass'";
+            return $this->execute($sql);
+        }
+
         public function updatePicture($id, $picture)
         {
             $sql = "UPDATE users SET picture = '$picture' WHERE id = '$id'";

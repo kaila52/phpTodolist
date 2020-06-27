@@ -5,8 +5,15 @@
         $action = '';
     }
 
-    if(isset($_POST['id'])){
-        echo '<script>alert('.$_POST['id'].')</script>';
+    if(isset($_POST['update'])){
+        $action = 'updateUser';
+        echo 'console.log('.$_POST['id'].')';
+        echo 'alert('.$_POST['id'].')';
+        
+    }
+
+    if(isset($_POST['delete'])){
+        $action = 'deleteUser';
     }
 
     switch($action){
@@ -15,7 +22,11 @@
             require('views/admin/customer.php');
             break;
         case 'deleteUser':
-            echo '<script>console.log('.$_DELETE['submit'].')</script>';
+            $db->deleteUser($_POST['delete']);
+            echo "success";
+            break;
+        case 'updateUser':
+            echo '<script>console.log("sssssssss")</script>';
             // header("Refresh:0");
             break;
         default:

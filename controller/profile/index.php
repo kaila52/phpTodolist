@@ -13,7 +13,7 @@
             require('views/profile/setting.php');
             break;
         case 'password':
-            require('views/profile/password.php');
+            require('password.php');
             break;
         default:
             require('views/error.php');

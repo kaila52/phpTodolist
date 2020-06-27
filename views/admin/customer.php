@@ -39,7 +39,7 @@ require "views/component/headerAdmin.php";
                                             <td>' . $value["email"] . '</td>
                                             <td><a href="pucblic/images/user/' . $value["picture"] . '">Link</a></td>
                                             <td>    
-                                                <p>'.$value["roler"].'</p>
+                                                <p>' . $value["roler"] . '</p>
                                             </td>
                                             <td>
                                                 <button class="btn btn-info btn-xs btn-edit">Edit</button>
@@ -108,9 +108,41 @@ require "views/component/fotterAdmin.php";
         $(this).parents("tr").find(".btn-cancel").remove();
     });
     $("body").on("click", ".btn-delete", function(e) {
-        <?php 
-            $db->deleteUser('$(this).parents("tr").attr("data-id")');
-        ?>
-        $(this).parents("tr").remove();
+        var data;
+        data = new FormData();
+        data.append('delete', $(this).parents("tr").attr("data-id"));
+
+        $.ajax({
+            url: "index.php?controller=admin&action=customer",
+            data: data,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function(response) {
+                if(response === "success"){
+                    location.reload();
+                }
+            }
+        });
     });
+
+    $("body").on("click", ".btn-update", function() {
+        var data;
+
+        data = new FormData();
+        data.append('update', $(this).parents("tr").attr("data-id"));
+
+        $.ajax({
+            url: "index.php?controller=admin&action=customer",
+            data: data,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function(response) {
+                console.log(response);
+
+                // You will get response from your PHP page (what you echo or print)
+            }
+        });
+    })
 </script>
