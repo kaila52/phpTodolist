@@ -84,6 +84,12 @@
             return $this->execute($sql);
         }
 
+        public function editAmountUser($id, $amount)
+        {
+            $sql = "UPDATE users SET amount= '$amount' WHERE id = '$id'";
+            return $this->execute($sql);
+        }
+
         public function updatePicture($id, $picture)
         {
             $sql = "UPDATE users SET picture = '$picture' WHERE id = '$id'";

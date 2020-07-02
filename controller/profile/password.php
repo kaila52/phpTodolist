@@ -5,7 +5,7 @@
         $param = '';
     }
     
-    if(isset($_POST["update"])){
+    if(isset($_POST["updatePasswd"])){
         $param = 'update';
     }
 
@@ -18,7 +18,7 @@
             $newpasswd = $_POST["newpasswd"];
             $cfpasswd = $_POST["cfpasswd"];
             $db -> editPassUser($_SESSION['id'],$oldpasswd,$newpasswd);
-            echo "$oldpasswd $newpasswd $cfpasswd";
+            echo "<script>alert()</script>";
             break;
         default:
             require('views/profile/password.php');

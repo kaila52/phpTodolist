@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2020 at 11:17 AM
+-- Generation Time: Jul 02, 2020 at 05:30 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.28
 
@@ -79,15 +79,17 @@ CREATE TABLE `users` (
   `roler` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
-  `picture` varchar(255) NOT NULL
+  `picture` varchar(255) NOT NULL,
+  `amount` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `roler`, `firstname`, `lastname`, `picture`) VALUES
-(1, '', '', '', '', '', '', '');
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `roler`, `firstname`, `lastname`, `picture`, `amount`) VALUES
+(1, 'admin', 'admin', 'admin@gmail.com', 'manager', 'admin', 'admin', '133816245827751961_879305525582523_2267782275357879997_n.png', 11),
+(2, 'admin1', 'zxc', 'admin1@gmail.com', 'guest', 'nguyen', 'thuan', '670618884dssa.png', 100);
 
 --
 -- Indexes for dumped tables
@@ -125,7 +127,7 @@ ALTER TABLE `directory`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

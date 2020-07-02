@@ -34,7 +34,7 @@ require "views/component/header.php";
                         <input type="password" class="form-control form-control-lg" id="colFormLabelLg" name="cfpasswd">
                     </div>
                 </div>
-                <button type="submit" name="update" class="btn btn-success">Success</button>
+                <button type="submit" name="updatePasswd" class="btn btn-success">Success</button>
             </form>
         </div>
     </div>

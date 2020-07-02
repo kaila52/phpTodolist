@@ -25,8 +25,8 @@ switch($controller){
     case 'product':
         require('controller/product.php');
         break;
-    case 'contact':
-        require('controller/contact.php');
+    case 'amount':
+        require('controller/amount.php');
         break;
     case 'login':
         require('controller/login.php');

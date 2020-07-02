@@ -35,33 +35,86 @@ L239.77,215.555L347.383,49.998l144.717,72.359l-26.387,45.446c-2.299,3.961-0.952,
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <?php
-                                foreach ($directory as $value) {
-                                    echo '<a class="dropdown-item" href="index.php?controller=product&action='.$value[1].'">'.ucfirst($value[1]).'</a>';
-                                }
+                            foreach ($directory as $value) {
+                                echo '<a class="dropdown-item" href="index.php?controller=product&action=' . $value[1] . '">' . ucfirst($value[1]) . '</a>';
+                            }
                             ?>
                         </div>
                     </li>
 
                     <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"><i class="fas fa-spa"></i></span>Services</a> </li>
                     <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-user"></i></i></span>About</a> </li>
-                    <li class="nav-item px-lg-2"> <a class="nav-link" href="index.php?controller=contact"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-envelope"></i></span>Contact</a> </li>
+                    <?php
+                    if (!empty($_SESSION['id'])) {
+                        echo '
+                        <li class="nav-item px-lg-2 nav-link" data-toggle="modal" data-target="#deposit">
+                            Deposit
+                        </li>
+                            <div class="modal fade" id="deposit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title amount" id="exampleModalLabel">Số dư : '.$_SESSION['amount'].'$</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Số tiền cần gửi: </label>
+                                        <input type="number" class="form-control" name="amountDeposit">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" name="Deposit">Send message</button>
+                                    </div>
+                              </div>
+                            </div>
+                          </div>
+                            ';
+                            echo '
+                            <li class="nav-item px-lg-2 nav-link" data-toggle="modal" data-target="#withdrawal">
+                                Withdrawal
+                                
+                                </li>
+                                <div class="modal fade" id="withdrawal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title amount" id="exampleModalLabel">Số dư : '.$_SESSION['amount'].'$</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Số tiền cần rút: </label>
+                                        <input type="number" class="form-control" name="amountWithdrawal">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" name="Withdrawal">Send message</button>
+                                    </div>
+                              </div>
+                                </div>
+                              </div>
+                                ';
+                    }
+                    ?>
                 </ul>
                 <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
-                    <li class="nav-item"> <a class="nav-link" href="#">
-                            <i class="fab fa-twitter"></i><span class="d-lg-none ml-3">Twitter</span>
-                        </a> </li>
+                    <?php if (!empty($_SESSION['id'])) {
+                      echo '<li class="nav-item align-self-center text-danger amount">Số dư : '.$_SESSION['amount'].'$</li>';
+                    };?>
+                    
                     <li class="nav-item"> <a class="nav-link" href="#">
                             <i class="fab fa-facebook"></i><span class="d-lg-none ml-3">Facebook</span>
                         </a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="#">
-                            <i class="fab fa-instagram"></i><span class="d-lg-none ml-3">Instagram</span>
-                        </a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="#">
-                            <i class="fab fa-linkedin"></i><span class="d-lg-none ml-3">Linkedin</span>
-                        </a> </li>
                 </ul>
                 <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
-                <?php
+                    <?php
                     if (empty($_SESSION['id'])) {
                         echo '<li class="nav-item px-1">
                             <a class="btn btn-outline-info my-2 my-sm-0" type="submit" href="index.php?controller=login">
@@ -73,15 +126,15 @@ L239.77,215.555L347.383,49.998l144.717,72.359l-26.387,45.446c-2.299,3.961-0.952,
                                 <i class="fas fa-sign-in-alt"></i> Register
                             </a>
                         </li>';
-                    } else{
-                        echo ' <li class="nav-item dropdown">
+                    } else {
+                        echo '<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-                        if(!empty($_SESSION['profile'])){
+                        if (!empty($_SESSION['profile'])) {
                             echo '<img id="navbarDropdown" style="border-radius: 50%;width: 40px;height: 40px;" src="pucblic/images/user/' . $_SESSION['profile'] . '"/>';
-                        }else{
+                        } else {
                             echo '<img id="navbarDropdown" src="pucblic/images/avatarDefaul.png" style="border-radius: 50%;width: 40px;height: 40px;" />';
                         }
-                            echo '</a>
+                        echo '</a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="index.php?controller=profile">Settings</a>
                             <div class="dropdown-divider"></div>
@@ -90,7 +143,7 @@ L239.77,215.555L347.383,49.998l144.717,72.359l-26.387,45.446c-2.299,3.961-0.952,
                     </li>';
                     }
                     ?>
-                   
+
                 </ul>
             </div>
         </div>

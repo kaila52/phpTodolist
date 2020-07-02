@@ -15,7 +15,7 @@ require "views/component/header.php";
             </div>
         </div>
         <div class="col-9 d-flex justify-content-center">
-            <form class="w-50 text-center" method="PUT" enctype="multipart/form-data">
+            <form class="w-50 text-center" method="POST" enctype="multipart/form-data">
                 <div>
                     <label style="cursor: pointer;" for="file-input">
                         <?php

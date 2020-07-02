@@ -5,7 +5,7 @@
         $param = '';
     }
     
-    if(isset($_PUT["submit"])){
+    if(isset($_POST["submit"])){
         $param = 'image';
     }
 

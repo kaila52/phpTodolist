@@ -25,7 +25,7 @@
                 echo '<script>alert("Vui lòng điền mật khẩu")</script>';
                 return require('views/login.php');
             }
-            $res = $db->findUser('id,username,email,roler,firstname,lastname,picture','(username = "'.$username.'" AND password = "'.$password.'")OR(email = "'.$username.'" AND password = "'.$password.'")');
+            $res = $db->findUser('id,username,email,roler,firstname,lastname,picture,amount','(username = "'.$username.'" AND password = "'.$password.'")OR(email = "'.$username.'" AND password = "'.$password.'")');
             
 
             if ($res) { 
@@ -36,8 +36,8 @@
 				$_SESSION['firstname'] = $res['firstname'];
 				$_SESSION['lastname'] = $res['lastname'];
                 $_SESSION['profile'] = $res['picture'];
-
-                echo print_r($res['roler']);
+                $_SESSION['amount'] = $res['amount'];
+                
                 switch($res['roler']){
                     case 'manager':
                         header('location: index.php?controller=admin');
